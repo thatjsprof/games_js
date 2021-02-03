@@ -50,7 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ]
 
-  cardArray.sort(() => 0.5 - Math.random())
+  for (let i = cardArray.length; i > 0; i--) {
+    let j = Math.floor(Math.random() * i)
+    let k = cardArray[i]
+    cardArray[i] = cardArray[j]
+    cardArray[j] = k
+  }
 
   const grid = document.querySelector('.grid')
   const result = document.querySelector('#result')
