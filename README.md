@@ -15,4 +15,10 @@ This repository holds the code of some games I created using vanilla javascript.
 4. How to use event handlers
 5. Using spread operator
 
+### Connect four
+1. Using event listeners
+2. DOM manipulation
+3. How to use event handlers
+4. Working with multi-dimensional arrays
+
 
