@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ]
 
-  for (let i = cardArray.length; i > 0; i--) {
+  for (let i = cardArray.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * i)
     let k = cardArray[i]
     cardArray[i] = cardArray[j]
@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', clickCard)
     grid.appendChild(card)
   }
+
+  console.log(cardArray.length)
 
   function clickCard() {
     const id = this.getAttribute('data-id')
