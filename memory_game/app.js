@@ -68,37 +68,40 @@ document.addEventListener('DOMContentLoaded', () => {
     let card = document.createElement('img')
     card.setAttribute('src', 'images/blank.png')
     card.setAttribute('data-id', i)
+    card.setAttribute('id', cardArray[i].name)
     card.addEventListener('click', clickCard)
     grid.appendChild(card)
   }
 
-  console.log(cardArray.length)
-
-  function clickCard() {
+  function clickCard(e) {
     const id = this.getAttribute('data-id')
-    this.setAttribute('src', cardArray[id].img)
-    cardsChosen.push(cardArray[id].name)
-    cardsChosenID.push(id)
-    if (cardsChosenID.length === 2) {
-      setTimeout(checkForMatch, 500)
+    
+    if (!cardsWon.includes(id)) {
+      this.setAttribute('src', cardArray[id].img)
+      cardsChosen.push(cardArray[id].name)
+      cardsChosenID.push(id)
+      if (cardsChosenID.length === 2) {
+        setTimeout(checkForMatch, 500)
+      }
     }
   }
 
   function checkForMatch() {
     const cards = document.querySelectorAll('img')
-    console.log(cardsChosenID)
     let chosenOne = cardsChosenID[0] 
     let chosenTwo = cardsChosenID[1]
+
     if (cardsChosen[0] === cardsChosen[1]) {
       resultDisplayed++
       result.textContent = resultDisplayed
       cards[chosenOne].setAttribute('src', 'images/white.png')
       cards[chosenTwo].setAttribute('src', 'images/white.png')
-      cardsWon.push(cardsChosen)
+      cardsWon.push(...cardsChosenID)
     } else {
       cards[chosenOne].setAttribute('src', 'images/blank.png')
       cards[chosenTwo].setAttribute('src', 'images/blank.png')
     }
+
     cardsChosen = []
     cardsChosenID = []
 
