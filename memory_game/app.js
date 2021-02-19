@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function clickCard(e) {
     const id = this.getAttribute('data-id')
-    
+
     if (!cardsWon.includes(id)) {
       this.setAttribute('src', cardArray[id].img)
       cardsChosen.push(cardArray[id].name)
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardsChosen = []
     cardsChosenID = []
 
-    if (cardsWon.length === cardArray.length / 2) {
+    if (cardsWon.length === cardArray.length) {
       alert('You have won the game')
     }
   }
